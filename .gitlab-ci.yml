@@ -1,0 +1,17 @@
+image: node:14.3.0
+stages:
+  - test
+  - build
+#    - deploy
+test:
+  stage: test
+  script:
+    - npm install
+    - ($env:CI = "true") -and (npm test)
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+

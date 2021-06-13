@@ -1,0 +1,17 @@
+FROM node
+
+# set working directory
+WORKDIR /app
+
+# install app dependencies
+COPY package.json .
+
+# run npm install to add depencies
+RUN npm install
+
+# copy all files to workdir /app
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
