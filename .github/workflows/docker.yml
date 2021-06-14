@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker build react
       run:  |
-        docker build .react-front -t mohammad1996/react
+        docker build .react-front-lolwiki -t mohammad1996/react
 
