@@ -34,8 +34,8 @@ class ChampionCrud extends Component{
             })
     }
 
-    async deleteChampion(champion){
-        await  fetch('http://localhost:9191/champions/delete/'+ champion.id, {
+    async deleteChampion(championId){
+        await  fetch('http://localhost:9191/champions/delete/'+ championId, {
             method: 'DELETE',
             headers: new Headers({
                 'Accept': 'application/json',
@@ -46,16 +46,17 @@ class ChampionCrud extends Component{
 
     };
 
+
     renderTableData = () => {
         return this.state.champions.map((champion, index) => {
-            const { id, name, type} = champion //destructuring
+            const { championId, championName, championType} = champion //destructuring
             return (
                                 <tr>
-                                <th scope="row">{id}</th>
-                                <td>{name}</td>
-                                <td>{type}</td>
+                                <th scope="row">{championId}</th>
+                                <td>{championName}</td>
+                                <td>{championType}</td>
             
-                                            <td><button type="button" className="btn btn-danger" value={id} onClick={this.deleteChampion.bind(this.champion)}>Delete</button></td>
+                                            <td><button type="button" className="btn btn-danger" value={championId} onClick={() => this.deleteChampion(championId)}>Delete</button></td>
             
                             </tr>
                 

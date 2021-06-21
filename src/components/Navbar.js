@@ -74,13 +74,12 @@ const Navbar = () => {
                     <Link to="ChampionCrud">Champ Overview</Link>
                 </div>
 
-                <div className="nav-link-wrapper">
+                {/* <div className="nav-link-wrapper">
                     <Link to="RegistrationAdmin">add admin</Link>
                 </div>
-
                 <div className="nav-link-wrapper">
-                    <Link to="RegistrationAdmin">ss</Link>
-                </div>
+                    <Link to="testCrud">testCrud</Link>
+                </div> */}
             </div>
         </div>)
 

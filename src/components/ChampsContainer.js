@@ -18,7 +18,6 @@ const ChampsContainer = () => {
     }
     return (
         <div>
-            Hello from champions container
             <ChampsFilter champs={champs}/>
             <ChampsList champs={sortedChamps}/>
 

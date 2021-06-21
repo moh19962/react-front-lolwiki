@@ -10,11 +10,12 @@ import Navbar from './components/Navbar';
 import AddChamps from "./pages/AddChamps";
 import RegistrationAdmin from "./pages/RegistrationAdmin";
 import ChampionCrud from "./pages/ChampionCrud";
-// import { useKeycloak } from "@react-keycloak/web";
+import AdminCrud from './pages/AdminCrud';
+import testCrud from './pages/testCrud';
 
 function App() {
 
-  // const {keycloak, initialized} = useKeycloak();
+
 
 
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route exact path="/AddChamps/" component={AddChamps} />
               <Route exact path="/RegistrationAdmin/" component={RegistrationAdmin} />
               <Route exact path="/ChampionCrud/" component={ChampionCrud} />
+              <Route exact path="/testCrud/" component={testCrud} />
               <Route exact path="/Contact/" component={Contact} />
               <Route component={Error} />
             </Switch>

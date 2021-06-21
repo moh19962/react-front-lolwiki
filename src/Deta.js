@@ -11,6 +11,7 @@ import skin10 from "./images/CaitSkin3.jpg";
 import skin11 from "./images/CaitSkin4.jpg";
 import skin12 from "./images/ZedSkin3.jpg";
 import skin13 from "./images/ZedSkin2.jpg";
+import skin14 from "./images/Zed-Shadow.jpg";
 import img1 from "./images/tristana.jpg";
 import img2 from "./images/Ashe.jpg";
 import img3 from "./images/Cait.jpg";
@@ -168,21 +169,21 @@ export default [
                 {
                     fields: {
                         file: {
-                            url: skin10
-                        }
-                    }
-                },
-                {
-                    fields: {
-                        file: {
-                            url: skin11
-                        }
-                    }
-                },
-                {
-                    fields: {
-                        file: {
                             url: skin12
+                        }
+                    }
+                },
+                {
+                    fields: {
+                        file: {
+                            url: skin13
+                        }
+                    }
+                },
+                {
+                    fields: {
+                        file: {
+                            url: skin14
                         }
                     }
                 }

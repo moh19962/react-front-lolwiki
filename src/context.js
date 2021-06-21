@@ -11,17 +11,22 @@ class ChampProvider extends Component {
         type: 'all',
     };
 
-    componentDidMount() {
-        let champs = this.formData(items)
-        console.log(champs)
-        let featuredChamps = champs.filter(champ => champ.featured === true);
+    // componentDidMount() {
+    //     let champs = this.formData(items)
+    //     console.log(champs)
+    //     let featuredChamps = champs.filter(champ => champ.featured === true);
 
-        this.setState({
-            champs,
-            featuredChamps,
-            sortedChamps: champs,
-            loading: false,
-          });
+    //     this.setState({
+    //         champs,
+    //         featuredChamps,
+    //         sortedChamps: champs,
+    //         loading: false,
+    //       });
+
+    // }
+
+    componentDidMount() {
+        this.getData();
 
     }
 
@@ -40,43 +45,39 @@ class ChampProvider extends Component {
     }
 
 
-        //Fetch data from the backend. Get all champs
-        // getData = async () =>{
-        //     try {
-        //       await fetch('http://localhost:9191/champions/all', {
-        //             method: 'GET',
-        //             headers: new Headers({
-        //                 'Accept': 'application/json',
-        //                 'Content-Type': 'application/json',
-        //             })
-        //         })
-        //             .then(res => {return res.json() })
-        //             .then(data => {
-        //                 this.setState({champs: data})
-        //                 console.log(this.state.champs)
-        //             })
-        //         let champs = this.state.champs
-        //         let featuredChamps = champs.filter(champ => champ.featured === true);
-        //         this.setState({
-        //             champs,
-        //             featuredChamps,
-        //             sortedChamps: champs,
-        //             loading: false,
-        //         })
-        //     } catch (error) {
-        //         console.log(error)
-        //     }
-        // }
+        // Fetch data from the backend. Get all champs
+        getData = async () =>{
+            try {
+              await fetch('http://localhost:9191/champions/all', {
+                    method: 'GET',
+                    headers: new Headers({
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    })
+                })
+                    .then(res => {return res.json() })
+                    .then(data => {
+                        this.setState({champs: data})
+                        console.log(this.state.champs)
+                    })
+                let champs = this.state.champs
+                let featuredChamps = champs.filter(champ => champ.featured === true);
+                this.setState({
+                    champs,
+                    featuredChamps,
+                    sortedChamps: champs,
+                    loading: false,
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
     
-        // componentDidMount() {
-        //     this.getData();
-    
-        // }
 
 // Nu je een slug terug hebt gekregen zoek je specifiek naar een champ
     getChamp = (slug) => {
         let tempChamps = [...this.state.champs]
-        const champ = tempChamps.find(champ => champ.slug === slug)
+        const champ = tempChamps.find(champ => champ.championName === slug)
         return champ
     }
 
