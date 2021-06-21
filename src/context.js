@@ -11,20 +11,6 @@ class ChampProvider extends Component {
         type: 'all',
     };
 
-    // componentDidMount() {
-    //     let champs = this.formData(items)
-    //     console.log(champs)
-    //     let featuredChamps = champs.filter(champ => champ.featured === true);
-
-    //     this.setState({
-    //         champs,
-    //         featuredChamps,
-    //         sortedChamps: champs,
-    //         loading: false,
-    //       });
-
-    // }
-
     componentDidMount() {
         this.getData();
 
@@ -95,17 +81,20 @@ class ChampProvider extends Component {
     };
 
 //if not all filter else show all
+
     filterChamps = () => {
-        let {champs, type} = this.state
+        let {champs, championType} = this.state
 
         let tempChamps = [...champs];
-        if (type !== 'all') {
-            tempChamps = tempChamps.filter(champ => champ.type === type)
+        if (championType !== 'all') {
+            tempChamps = tempChamps.filter(champ => champ.championType === championType)
         }
         this.setState({
             sortedChamps: tempChamps
         })
     };
+
+
     render() {
         return (
             //destruct the state so it can used in another component

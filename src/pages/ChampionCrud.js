@@ -34,6 +34,28 @@ class ChampionCrud extends Component{
             })
     }
 
+    // async updateChampion(championId, index){
+    //     await  fetch('http://localhost:9191/champions/delete/'+ championId, {
+    //         method: 'PUT',
+    //         headers: new Headers({
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             body: JSON.stringify({
+    //                 championId: championId,
+    //                 championName: document.getElementsByClassName("name")[index].value,
+    //                 championType: document.getElementsByClassName("type")[index].value,
+    //             })
+    //         })
+    //     })
+    //         .then(res => {
+    //             console.log(res);
+    //         })
+    //         .catch(err => {
+    //             console.log();
+    //         }).then(window.location.reload(false));
+    // };
+
+
     async deleteChampion(championId){
         await  fetch('http://localhost:9191/champions/delete/'+ championId, {
             method: 'DELETE',
@@ -56,7 +78,10 @@ class ChampionCrud extends Component{
                                 <td>{championName}</td>
                                 <td>{championType}</td>
             
-                                            <td><button type="button" className="btn btn-danger" value={championId} onClick={() => this.deleteChampion(championId)}>Delete</button></td>
+                                            <td>
+                                                <button type="button" className="btn btn-danger" value={championId} onClick={() => this.deleteChampion(championId)}>Delete</button>
+                                                <button type="button" className="btn btn-warning" value={championId} onClick={()=> this.updateAmount(championId, index)}>Update</button>
+                                            </td>
             
                             </tr>
                 

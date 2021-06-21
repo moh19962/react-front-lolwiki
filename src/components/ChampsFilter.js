@@ -8,29 +8,30 @@ const getUniqueType = (items, value) => {
 }
 const ChampFilter= ({champs}) => {
 
-    let {handleChange, type} = useContext(ChampContext);
+    let {handleChange, championType} = useContext(ChampContext);
 
-     //Get unique types
-     let types = getUniqueType(champs, "type");
+    //Get unique types
+    let types = getUniqueType(champs, "championType");
 
     //Add all to array
-     types = ["all", ...types];
+    types = ["all", ...types];
 
 
     return <section className="filter-container">
         <Title title="search champions" />
-        <form className="filter-form">
+        <form className="filter-form" id="grid">
             {/*Begin type*/}
-            <div className="form-group">
-                <label htmlFor="type">champ type</label>
-                <select name="type" id="type" onChange={handleChange} className="form-control" value={type}>
-
-                    {
-                        types.map((item, index) => {
-                            return <option value={item} key={index}>{item}</option>
-                        })
-                    }
-                </select>
+            <div className="form-group-right">
+                <div className="form-group" id="">
+                    <label htmlFor="championType">champ type</label>
+                    <select name="championType" id="championType" onChange={handleChange} className="form-control" value={championType}>
+                        {
+                            types.map((item, index) => {
+                                return <option value={item} key={index}>{item}</option>
+                            })
+                        }
+                    </select>
+                </div>
             </div>
             {/*End type*/}
         </form>
